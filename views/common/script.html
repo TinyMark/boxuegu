@@ -1,5 +1,7 @@
-<script src="./views/public/assets/jquery/jquery.min.js"></script>
-<script src="./views/public/assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="./views/public/assets/nprogress/nprogress.js"></script>
-<script src="./views/public/assets/echarts/echarts.min.js"></script>
-<script src="./views/public/js/common.js"></script>
+<script src="/views/public/lib/require.js"></script>
+<script src="/views/public/lib/config.js"></script>
+<script>
+    //定义完了模块之后，一定要先调用一下,因为每个页面，都需要先执行一下common看看是不是第一次请求服务器，如果是的话，需要先登陆
+    require(['common']);
+
+</script>
