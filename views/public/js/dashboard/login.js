@@ -2,7 +2,8 @@
  * Created by Administrator on 2017/7/11.
  */
 define(['jquery', 'cookie'], function ($) {
-    $('#formLogin').submit(function () {  // 输入内容之后，按回车即可进行提交
+    $('#formLogin').submit(function (e) {  // 输入内容之后，按回车即可进行提交
+        e.preventDefault();
         //获取用户名和密码，发送ajax请求
         var data = $(this).serializeArray();//将表单里面的数据序列化成对象
         console.log(data);

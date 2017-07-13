@@ -9,7 +9,7 @@ require.config({
         'echarts': 'assets/echarts/echarts.min',
         'common': 'js/dashboard/common'
     },
-    shim: {   // 设置bootstrap的依赖
+    shim: {
         'bootstrap': {
             deps: ['jquery']
         }
