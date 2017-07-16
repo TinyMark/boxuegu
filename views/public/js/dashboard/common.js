@@ -5,10 +5,13 @@ define(['jquery', 'cookie', 'template'], function ($, cookie, template) {
 
     // 渲染模板    login页面是不需要用户名和头像渲染的，需要排除掉
     if (location.pathname != '/login' && location.pathname != '/dashboard/login' && location.pathname != '/views/dashboard/login') {
-        var tcInfo = JSON.parse($.cookie('tcInfo')); // 把字符串转换成对象
-        var htmlStr = template('tp_aside_avatar', tcInfo);  // 拼接模板字符串
-        $('.aside > .profile').html(htmlStr); //渲染模板
-
+        if ($.cookie('tcInfo')) {
+            var tcInfo = JSON.parse($.cookie('tcInfo')); // 把字符串转换成对象
+            var htmlStr = template('tp_aside_avatar', tcInfo);  // 拼接模板字符串
+            $('.aside > .profile').html(htmlStr); //渲染模板
+        } else {
+            location.href = '/login';
+        }
         //退出功能
         $('#logoutBtn').on('click', function () {
             $.ajax({
@@ -17,8 +20,7 @@ define(['jquery', 'cookie', 'template'], function ($, cookie, template) {
                 success: function (info) {
                     if (info.code == 200) {
                         alert('退出成功');
-                        //退出成功之跳转到登陆页面
-                        location.href = '/login';
+                        location.href = '/index';
                     }
                 }
             })
