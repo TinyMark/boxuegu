@@ -28,7 +28,7 @@ define(['utils', 'jquery', 'template', 'ckeditor', 'form'], function (obj, $, te
             success: function (info) {
                 if (info.code == 200) {
                     alert('保存成功，即将跳转到图片中心...');
-                    // location.href = '/course/pic?cs_id=' + info.result.cs_id;
+                    location.href = '/course/pic?cs_id=' + info.result.cs_id;
                 }
             }
         })

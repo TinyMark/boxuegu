@@ -61,7 +61,7 @@
             </form>
         </div>
     </div>
-    {{each result as v i}}
+    {{each result[page] as v i}}
     <div class="course">
         <div class="pic">
             <img src="{{v.cs_cover}}" alt="">
@@ -86,12 +86,13 @@
     </div>
     {{/each}}
     <ul class="pagination pull-right">
-        <li><a href="#">上一页</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">下一页</a></li>
+        <li><a href="#" data-index='prev'>上一页</a></li>
+        {{each result as v i}} 
+        {{if i<page-2}} 
+        {{else}} 
+        <li {{if i==page}} class='disabled' {{/if}}><a href="#" data-index='{{i}}'>{{ i+1 }}</a></li>
+        {{/if}} 
+        {{/each}}
+        <li><a href="#" data-index='next'>下一页</a></li>
     </ul>
 </script>
